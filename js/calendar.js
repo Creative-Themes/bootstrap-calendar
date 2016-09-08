@@ -1252,13 +1252,18 @@ if(!String.prototype.formatNum) {
 				cal: self,
 				events: self.getEventsBetween(parseInt(event_list.data('cal-start')), parseInt(event_list.data('cal-end')))
 			}));
+
 			row.after(slider);
 			self.activecell = $('[data-cal-date]', cell).text();
+
 			$('#cal-slide-tick').addClass('tick' + tick_position).show();
+			cell.addClass('ct-tick');
+
 			slider.slideDown('fast', function() {
 				$('body').one('click', function() {
 					slider.slideUp('fast');
 					self.activecell = 0;
+					cell.removeClass('ct-tick');
 				});
 			});
 		});
@@ -1298,3 +1303,4 @@ if(!String.prototype.formatNum) {
 		return new Calendar(params, this);
 	}
 }(jQuery));
+
