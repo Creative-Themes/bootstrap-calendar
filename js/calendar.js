@@ -1257,6 +1257,12 @@ if(!String.prototype.formatNum) {
 			self.activecell = $('[data-cal-date]', cell).text();
 
 			$('#cal-slide-tick').addClass('tick' + tick_position).show();
+
+			cell
+				.closest('.cal-context')
+				.find('.ct-tick')
+				.removeClass('ct-tick');
+
 			cell.addClass('ct-tick');
 
 			slider.slideDown('fast', function() {
